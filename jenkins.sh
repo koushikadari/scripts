@@ -38,3 +38,13 @@ java -version
 # Show Jenkins Initial Password
 echo "Jenkins Initial Admin Password:"
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+-------------------------------------------------------------- master and slave ----------------------
++ paste this commands in slave server + 
+sudo mkdir -p /var/tmp_disk
+sudo chmod 1777 /var/tmp_disk
+sudo mount --bind /var/tmp_disk /tmp
+echo '/var/tmp_disk /tmp none bind 0 0' | sudo tee -a /etc/fstab
+sudo systemctl mask tmp.mount
+df -h /tmp
+
+
